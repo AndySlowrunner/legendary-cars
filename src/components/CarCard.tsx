@@ -1,10 +1,14 @@
-import type {Car} from "../types/Car";
+import type {Props} from "../types/CarProps";
 
-const CarCard = (carData: Car) => {
+
+export const CarCard = ({carData}: Props) => {
     return (
       <>
         <div>
-          <img src={carData.image} alt="legendary car" />
+          <img width="480"
+            src={carData.image}
+            alt="legendary car"
+          />
           <p>Brand: {carData.brand}</p>
           <p>Model: {carData.model}</p>
           <p>Year: {carData.year}</p>
@@ -13,5 +17,3 @@ const CarCard = (carData: Car) => {
       </>
     );
 }
-
-export default CarCard;
