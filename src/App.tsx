@@ -1,9 +1,9 @@
 // import { useState } from 'react'
-import { Header } from './Header';
-import {CarCard} from './components/CarCard';
+import { Header } from "./Header";
+import { CarCard } from "./components/CarCard/CarCard";
 
-import './App.css'
-import type { Car } from './types/CarProps';
+import "./App.css";
+import type { Car } from "./types/CarProps";
 
 const obj: Car = {
   id: "1",
@@ -18,13 +18,12 @@ const obj: Car = {
 };
 
 function App() {
-
   return (
     <>
       <Header></Header>
-        <CarCard carData={obj}></CarCard>
+      <CarCard carData={obj}></CarCard>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
