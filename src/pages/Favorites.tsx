@@ -1,3 +1,7 @@
 export const Favorites = () => {
-  return <></>;
+  return (
+    <>
+      <p>You have not added any cars yet.</p>
+    </>
+  )
 };

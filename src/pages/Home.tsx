@@ -1,5 +1,4 @@
 import { CarCard } from "../components/CarCard/CarCard"
-import { Header } from "../Header"
 import { Study } from "../components/StudyComponent";
 import type { Car } from "../types/CarProps";
 
@@ -18,7 +17,6 @@ const obj: Car = {
 export const Home = () => {
     return (
       <>
-        <Header />
         <CarCard carData={obj} />
         <Study></Study>
       </>
