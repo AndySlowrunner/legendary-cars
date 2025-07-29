@@ -1,15 +1,17 @@
 import type { Props } from "../../types/CarProps";
-import { Card, Image } from "./CarCard.styled";
+import { Card, Image, Thumb, StyledButton } from "./CarCard.styled";
 
 export const CarCard = ({ carData }: Props) => {
   return (
     <>
       <Card>
-        <Image width="480" src={carData.image} alt="legendary car" />
-        <p>Brand: {carData.brand}</p>
-        <p>Model: {carData.model}</p>
-        <p>Year: {carData.year}</p>
-        <p>Description: {carData.description}</p>
+        <Thumb>
+          <Image src={carData.image} alt="legendary car" />
+        </Thumb>
+        <p>
+          {carData.brand} {carData.model}
+        </p>
+        <StyledButton>More details</StyledButton>
       </Card>
     </>
   );
