@@ -1,19 +1,28 @@
 import { CardsList } from "../components/CardsList/CardsList"
-import { arr } from "../data/legendaryCars"
-import { allowedDecades, type Car, type Decade } from "../types/CarProps";
-
-const isValidDecade = (value: string): value is Decade =>
-  allowedDecades.includes(value as Decade);
+import { fetchCars } from "../api/carsApi";
+import { useEffect, useState } from "react";
+import type { Car } from "../types/CarProps";
 
 
 export const Home = () => {
-  const validatedCars = arr.filter((car): car is Car =>
-    isValidDecade(car.decade)
-  );
+  const [cars, setCars] = useState<Car[]>([]);
+
+  useEffect(() => {
+    const getCars = async () => {
+      try {
+        const data = await fetchCars();
+        setCars(data);
+      } catch(error) {
+        alert(error);
+      }
+    };
+    getCars();
+  }, []);
+  
   return (
     <>
       <ul>
-        <CardsList array={validatedCars} />
+        <CardsList array={cars} />
       </ul>
     </>
   );
