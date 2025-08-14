@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import type { Props } from "../../types/CarProps";
 import { Card, Image, Thumb, StyledButton } from "./CarCard.styled";
 
 export const CarCard = ({ carData }: Props) => {
+  const navigate = useNavigate();
+
+  const handlClick = () => {
+    navigate("/car/:id");
+  }
+  
   return (
     <>
       <Card>
@@ -11,7 +18,7 @@ export const CarCard = ({ carData }: Props) => {
         <p>
           {carData.brand} {carData.model}
         </p>
-        <StyledButton>More details</StyledButton>
+        <StyledButton onClick={handlClick}>More details</StyledButton>
       </Card>
     </>
   );

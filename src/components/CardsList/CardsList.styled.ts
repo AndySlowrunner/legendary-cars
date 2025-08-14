@@ -10,7 +10,7 @@ export const ListContainer = styled.div`
   }
 
   /* Великий екран */
-  @media (min-width: 1281px) and (max-width: 1440px) {
+  @media (min-width: 1281px) {
     grid-template-columns: repeat(3, 394px);
   }
   gap: 20px;

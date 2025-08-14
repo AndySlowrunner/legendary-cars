@@ -10,3 +10,11 @@ export const fetchCars = async ():Promise<Car[]> => {
     return response.json();
 };
 
+export const getDetails = async (id: string) => {
+    const response = await fetch(`${BASE_URL}/cars/:${id}`);
+    if (!response.ok) {
+        throw new Error('Something went wrong!')
+    }
+    return response.json();
+}
+
