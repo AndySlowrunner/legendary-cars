@@ -1,15 +1,14 @@
-// import type { Car } from "../types/CarProps";
-
 import { useParams } from "react-router-dom";
-import { getDetails } from "../api/carsApi";
 import { useEffect, useState } from "react";
+import { getDetails } from "../api/carsApi";
 import type { Car } from "../types/CarProps";
 
-// type Props = {};
 
 export const CarDetails = () => {
   const { id } = useParams<{id: string}>();
   const [car, setCar] = useState<Car|null>(null);
+
+  console.log(car)
 
   useEffect(() => {
     const details = async () => {
@@ -21,9 +20,10 @@ export const CarDetails = () => {
     }
     };
     details();
-  }, [])
+  },[id])
 
-  if (!car) return <div>Loading...</div>
+  if (!car) { return <div>Loading...</div> }
+  
   return (
     <>
       <div>

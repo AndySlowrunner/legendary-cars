@@ -6,7 +6,7 @@ export const CarCard = ({ carData }: Props) => {
   const navigate = useNavigate();
 
   const handlClick = () => {
-    navigate("/car/:id");
+    navigate(`/collection/${carData.id}`);
   }
   
   return (
