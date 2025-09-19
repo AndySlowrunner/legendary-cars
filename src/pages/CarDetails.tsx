@@ -1,15 +1,20 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDetails } from "../api/carsApi";
 import type { Car } from "../types/CarProps";
+import { Container, Info, Picture } from "./CarDetails.styled";
+import { BackLink } from "../components/BackLink/BackLink";
 
 
 export const CarDetails = () => {
   const { id } = useParams<{id: string}>();
-  const [car, setCar] = useState<Car|null>(null);
+  const [car, setCar] = useState<Car | null>(null);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/collection";
 
   console.log(car)
-
+  console.log(typeof backLinkHref);
+  
   useEffect(() => {
     const details = async () => {
     try {
@@ -26,11 +31,14 @@ export const CarDetails = () => {
   
   return (
     <>
-      <div>
-        <img src={car.image} alt="Car image" />
-        <h1>{car.brand}</h1>
-        <p>{car.description}</p>
-      </div>
+      <BackLink to={backLinkHref} />
+      <Container>
+        <Picture src={car.image} alt="Car image" />
+        <Info>
+          <h1>{car.brand + " " + car.model}</h1>
+          <p>{car.description}</p>
+        </Info>
+      </Container>
     </>
   );
 };

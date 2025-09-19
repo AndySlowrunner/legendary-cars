@@ -24,14 +24,14 @@ export const Collection = () => {
     setPage(prev => prev +1);
   }
 
-    return (
-      <>
-        <ul>
-          <CardsList array={cars} />
-        </ul>
-        <BtnContainer>
-          <StyledBtn onClick={handleClick}>Load more</StyledBtn>
-        </BtnContainer>
-      </>
-    );
+  return (
+    <>
+      <ul>
+        <CardsList array={cars} />
+      </ul>
+      {page >= 5 ? (null) : (<BtnContainer>
+        <StyledBtn onClick={handleClick}>Load more</StyledBtn>
+      </BtnContainer>)}
+    </>
+  );
 }
