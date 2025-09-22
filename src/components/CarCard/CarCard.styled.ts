@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export const Card = styled.div`
   width: 360px;
@@ -12,6 +14,7 @@ export const Card = styled.div`
 export const Thumb = styled.div`
   width: 360px;
   height: 240px;
+  position: relative;
 `;
 
 export const Image = styled.img`
@@ -19,6 +22,30 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+`;
+
+export const StyledBorderIcon = styled(FavoriteBorderIcon)`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  color: blue;
+
+  &:hover {
+    color: #ff0c6f;
+  }
+`;
+
+export const StyledIcon = styled(FavoriteIcon)`
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: #ff0c6f;
+
+  /* &:hover {
+    color: #ff0c6f;
+  } */
 `;
 
 export const StyledButton = styled.button`
