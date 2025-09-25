@@ -18,8 +18,8 @@ export const CarCard = ({ carData }: Props) => {
     navigate(`/collection/${carData.id}`);
   }
 
-  const handlExchange = () => {
-    setFavorite(true);
+  const handlChange = () => {
+    setFavorite(!isFavorite);
   }
   
   return (
@@ -28,9 +28,9 @@ export const CarCard = ({ carData }: Props) => {
         <Thumb>
           <Image src={carData.image} alt="legendary car" />
           {isFavorite ? (
-            <StyledIcon fontSize="large" />
+            <StyledIcon onClick={handlChange} fontSize="large" />
           ) : (
-            <StyledBorderIcon onClick={handlExchange} fontSize="large" />
+            <StyledBorderIcon onClick={handlChange} fontSize="large" />
           )}
         </Thumb>
         <p>

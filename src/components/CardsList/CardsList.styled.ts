@@ -24,9 +24,9 @@ justify-content: center;
 export const StyledBtn = styled.button`
   display: inline-block;
   margin-bottom: 20px;
-  padding: 20px 48px;
+  padding: 14px 48px;
   color: #ffff;
-  background-color: #ff0c6f;
+  background-color: #3b4f6d;
   font-size: 18px;
   border: none;
   border-radius: 6px;

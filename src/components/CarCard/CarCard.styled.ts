@@ -29,22 +29,24 @@ export const StyledBorderIcon = styled(FavoriteBorderIcon)`
   top: 10px;
   right: 15px;
   cursor: pointer;
-  color: blue;
+  color: white;
 
   &:hover {
-    color: #ff0c6f;
+    color: #ff5d94;
   }
 `;
 
 export const StyledIcon = styled(FavoriteIcon)`
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 10px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   color: #ff0c6f;
 
   /* &:hover {
-    color: #ff0c6f;
+    color: white;
   } */
 `;
 

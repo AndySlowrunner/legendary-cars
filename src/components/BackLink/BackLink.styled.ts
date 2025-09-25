@@ -13,7 +13,7 @@ export const StyledLink = styled(Link)`
   color: black;
 
   &:hover {
-    color: #ff0c6f;
+    color: #ff5d94;
   }
 
   p {

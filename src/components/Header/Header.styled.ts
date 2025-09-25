@@ -5,8 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 100px;
-  /* border-bottom: 1px solid black; */
-  background-color: darkgray;
+  background-color: #5073a5;
 `
 
 export const StyledNav = styled.nav`
@@ -17,8 +16,9 @@ export const StyledNav = styled.nav`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
+  color: white;
   &:hover {
-    color: #ff0c6f;
+    color: #ff5d94;
   }
 `;
 
