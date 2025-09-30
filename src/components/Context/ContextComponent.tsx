@@ -1,35 +1,22 @@
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import type { ReactNode } from "react";
-
-type FavoriteValuesType = {
-    favorites: string[],
-    addToFavorites: (item: string) => void,
-    remoteFavorites: (item: string) => void,
-};
-
-const MyContext = createContext<FavoriteValuesType | undefined>(undefined);
+import { MyContext } from "./ContextHuk";
+import type { Car } from "../../types/CarProps";
 
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<Car[]>([]);
 
-  const addToFavorites = (item: string) => {
+  const addToFavorites = (item: Car) => {
     setFavorites((prev) => [...prev, item]);
   };
 
-  const remoteFavorites = (item: string) => {
-    favorites.filter((el) => el !== item);
+  const removeFavorites = (item: Car) => {
+    setFavorites((prev) => prev.filter((el) => el.id !== item.id));
   };
 
   return (
-    <MyContext.Provider value={{ favorites, addToFavorites, remoteFavorites }}>
+    <MyContext.Provider value={{ favorites, addToFavorites, removeFavorites }}>
       {children}
     </MyContext.Provider>
   );
-};
-
-export const useFavorites = () => {
-    const context = useContext(MyContext);
-    if (!context)
-        throw new Error("useFavorites must be used within FavoritesProvider");
-    return context;
 };

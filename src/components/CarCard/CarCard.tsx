@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import type { Props } from "../../types/CarProps";
 import {
   Card,
@@ -9,17 +8,16 @@ import {
   StyledBorderIcon,
   StyledIcon,
 } from "./CarCard.styled";
+import { useFavorites } from "../Context/ContextHuk";
 
 export const CarCard = ({ carData }: Props) => {
-  const [isFavorite, setFavorite] = useState(false);
   const navigate = useNavigate();
+  const { favorites, addToFavorites, removeFavorites } = useFavorites();
+
+  const isFavorite = favorites.some(item => item.id === carData.id);
 
   const handlClick = () => {
     navigate(`/collection/${carData.id}`);
-  }
-
-  const handlChange = () => {
-    setFavorite(!isFavorite);
   }
   
   return (
@@ -28,9 +26,15 @@ export const CarCard = ({ carData }: Props) => {
         <Thumb>
           <Image src={carData.image} alt="legendary car" />
           {isFavorite ? (
-            <StyledIcon onClick={handlChange} fontSize="large" />
+            <StyledIcon
+              onClick={() => removeFavorites(carData)}
+              fontSize="large"
+            />
           ) : (
-            <StyledBorderIcon onClick={handlChange} fontSize="large" />
+            <StyledBorderIcon
+              onClick={() => addToFavorites(carData)}
+              fontSize="large"
+            />
           )}
         </Thumb>
         <p>
